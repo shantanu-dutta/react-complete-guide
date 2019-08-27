@@ -12,10 +12,13 @@ class App extends Component {
   }
 
   render() {
+    const personsList = this.state.persons.map((person, index) =>
+      <Person key={index} name={person.name} age={person.age} />
+    );
     return (
       <div className="App">
         <h1>Hi, I'm a React App!!!</h1>
-        {this.state.persons.map(p => <Person name={p.name} age={p.age} />)}
+        {personsList}
       </div>
     );
   }
