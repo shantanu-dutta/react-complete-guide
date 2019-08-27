@@ -12,8 +12,8 @@ class App extends Component {
   }
 
   render() {
-    const personsList = this.state.persons.map((person, index) =>
-      <Person key={index} name={person.name} age={person.age} />
+    const personsList = this.state.persons.map(person =>
+      <Person key={person.name + person.age} name={person.name} age={person.age} />
     );
     return (
       <div className="App">
