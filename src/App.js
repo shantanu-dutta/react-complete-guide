@@ -20,11 +20,22 @@ class App extends Component {
         { name: 'Gopal', age: 23 },
       ]
     })
-  }
+  };
+
+  nameChangeHandler = event => {
+    this.setState({
+      persons: [
+        { name: 'Hari', age: 28 },
+        { name: event.target.value, age: 27 },
+        { name: 'Gopal', age: 23 },
+      ]
+    })
+  };
 
   render() {
     const personsList = this.state.persons.map(person =>
-      <Person key={person.name + person.age} name={person.name} age={person.age} click={this.switchNameHandler.bind(this, person.age)} />
+      <Person key={person.name + person.age} name={person.name} age={person.age} click={this.switchNameHandler.bind(this, person.age)}
+        changed={this.nameChangeHandler}/>
     );
     return (
       <div className="App">
