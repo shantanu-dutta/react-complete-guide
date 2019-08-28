@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi, I'm a React App!!!</h1>
-        <button onClick={this.switchNameHandler.bind(this, 'Shaan')}>Switch Name</button>
+        <button onClick={() => this.switchNameHandler('Shaan')}>Switch Name</button>
         {personsList}
       </div>
     );
