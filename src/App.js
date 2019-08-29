@@ -10,17 +10,15 @@ class App extends Component {
       { name: 'Gopal', age: 26 },
     ],
     otherState: 'some other state',
-    showPersons: false,
+    showPersons: true,
   }
 
-  switchNameHandler = (newName) => {
+  deletePersonHandler = personIndex => {
+    const persons = this.state.persons.slice();
+    persons.splice(personIndex, 1);
     this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name: 'Ramu', age: 27 },
-        { name: 'Gopal', age: 23 },
-      ]
-    })
+      persons: persons,
+    });
   };
 
   nameChangeHandler = event => {
@@ -56,7 +54,7 @@ class App extends Component {
               key={index}
               name={person.name}
               age={person.age}
-              click={this.switchNameHandler.bind(this, person.name)}
+              click={this.deletePersonHandler.bind(this, index)}
               changed={this.nameChangeHandler} />
           )}
         </div>
