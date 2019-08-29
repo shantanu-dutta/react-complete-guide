@@ -33,14 +33,23 @@ class App extends Component {
   };
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+    };
     const personsList = this.state.persons.map(person =>
       <Person key={person.name + person.age} name={person.name} age={person.age} click={this.switchNameHandler.bind(this, person.age)}
-        changed={this.nameChangeHandler}/>
+        changed={this.nameChangeHandler} />
     );
     return (
       <div className="App">
         <h1>Hi, I'm a React App!!!</h1>
-        <button onClick={() => this.switchNameHandler('Shaan')}>Switch Name</button>
+        <button
+          style={style}
+          onClick={() => this.switchNameHandler('Shaan')}>Switch Name</button>
         {personsList}
       </div>
     );
