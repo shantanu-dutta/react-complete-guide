@@ -9,7 +9,8 @@ class App extends Component {
       { name: 'Ram', age: 27 },
       { name: 'Gopal', age: 26 },
     ],
-    otherState: 'some other state'
+    otherState: 'some other state',
+    showPersons: false,
   }
 
   switchNameHandler = (newName) => {
@@ -32,6 +33,11 @@ class App extends Component {
     })
   };
 
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow });
+  };
+
   render() {
     const style = {
       backgroundColor: 'white',
@@ -40,17 +46,21 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer',
     };
-    const personsList = this.state.persons.map(person =>
-      <Person key={person.name + person.age} name={person.name} age={person.age} click={this.switchNameHandler.bind(this, person.age)}
-        changed={this.nameChangeHandler} />
-    );
     return (
       <div className="App">
         <h1>Hi, I'm a React App!!!</h1>
         <button
           style={style}
-          onClick={() => this.switchNameHandler('Shaan')}>Switch Name</button>
-        {personsList}
+          onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        {
+          this.state.showPersons ?
+            <div>
+              {this.state.persons.map((person, index) =>
+                <Person key={index} name={person.name} age={person.age} click={this.switchNameHandler.bind(this, person.name)}
+                  changed={this.nameChangeHandler} />
+              )}
+            </div> : null
+        }
       </div>
     );
   }
