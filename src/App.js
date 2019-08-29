@@ -49,13 +49,16 @@ class App extends Component {
 
     let persons = null;
     if (this.state.showPersons) {
-      const personsList = this.state.persons.map((person, index) =>
-        <Person key={index} name={person.name} age={person.age} click={this.switchNameHandler.bind(this, person.name)}
-          changed={this.nameChangeHandler} />
-      );
       persons = (
         <div>
-          {personsList}
+          {this.state.persons.map((person, index) =>
+            <Person
+              key={index}
+              name={person.name}
+              age={person.age}
+              click={this.switchNameHandler.bind(this, person.name)}
+              changed={this.nameChangeHandler} />
+          )}
         </div>
       );
     }
