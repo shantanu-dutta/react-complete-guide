@@ -43,11 +43,9 @@ class App extends Component {
   };
 
   render() {
-    const btnClasses = [styles.btn];
-
     let persons = null;
+    let btnClass = '';
     if (this.state.showPersons) {
-      btnClasses.push(styles.btnRed);
       persons = (
         <div>
           {this.state.persons.map((person, index) => (
@@ -61,10 +59,8 @@ class App extends Component {
           ))}
         </div>
       );
-    } else {
-      btnClasses.push(styles.btnGreen);
+      btnClass = styles.Red;
     }
-
     const pClasses = [];
     if (this.state.persons.length <= 2) {
       pClasses.push(styles.red);
@@ -74,10 +70,10 @@ class App extends Component {
     }
 
     return (
-      <div className={styles.app}>
+      <div className={styles.App}>
         <h1>I'm a React App</h1>
         <p className={pClasses.join(' ')}>This is really working!</p>
-        <button className={btnClasses.join(' ')} onClick={this.togglePersonsHandler}>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>
           Toggle Persons
         </button>
         {persons}

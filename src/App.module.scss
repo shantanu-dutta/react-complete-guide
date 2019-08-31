@@ -1,5 +1,25 @@
-.app {
+.App {
   text-align: center;
+  button {
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    &:hover {
+      background-color: lightgreen;
+      color: black;
+    }
+  }
+  button.Red {
+    background-color: red;
+    color: white;
+    &:hover {
+      background-color: salmon;
+      color: black;
+    }
+  }
 }
 
 .red {
@@ -8,29 +28,4 @@
 
 .bold {
   font-weight: bold;
-}
-
-.btn {
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
-}
-
-.btnGreen {
-  background-color: green;
-  color: white;
-  &:hover {
-    background-color: lightgreen;
-    color: black;
-  }
-}
-
-.btnRed {
-  background-color: red;
-  color: white;
-  &:hover {
-    background-color: salmon;
-    color: black;
-  }
 }
