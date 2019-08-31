@@ -1,12 +1,14 @@
 import React from 'react';
-import './Person.css';
+import styles from './Person.module.scss';
 
 const person = ({ name, age, children, click, changed }) => {
   return (
-    <div className="Person">
-      <p onClick={click}>I'm {name} and I'm {age} years old!</p>
+    <div className={styles.person}>
+      <p onClick={click}>
+        I'm {name} and I'm {age} years old!
+      </p>
       <p>{children}</p>
-      <input type="text" onChange={changed} value={name} />
+      <input type='text' onChange={changed} value={name} />
     </div>
   );
 };
