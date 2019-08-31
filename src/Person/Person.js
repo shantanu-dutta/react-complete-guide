@@ -3,7 +3,7 @@ import styles from './Person.module.scss';
 
 const person = ({ name, age, children, click, changed }) => {
   return (
-    <div className={styles.person}>
+    <div className={styles.Person}>
       <p onClick={click}>
         I'm {name} and I'm {age} years old!
       </p>
